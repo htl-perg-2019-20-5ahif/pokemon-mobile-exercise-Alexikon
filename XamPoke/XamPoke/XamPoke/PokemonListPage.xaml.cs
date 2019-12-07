@@ -1,8 +1,5 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -39,7 +36,7 @@ namespace XamPoke
             var responseBody = await pokemonResponse.Content.ReadAsStringAsync();
             PokemonUrl = JsonConvert.DeserializeObject<PokemonUrl>(responseBody);
 
-            while(PokemonUrl.Next != null)
+            while (PokemonUrl.Next != null)
             {
                 foreach (var pok in PokemonUrl.Results)
                 {
