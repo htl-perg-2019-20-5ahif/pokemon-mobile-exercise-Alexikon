@@ -57,5 +57,14 @@ namespace XamPoke
                 PokemonUrl = JsonConvert.DeserializeObject<PokemonUrl>(responseBody);
             }
         }
+
+        public async void ListView_ItemTappedAsync(object sender, ItemTappedEventArgs e)
+        {
+            if (e.Item != null)
+            {
+                var details = e.Item as Pokemon;
+                await Navigation.PushModalAsync(new DetailPage(details));
+            }
+        }
     }
 }
